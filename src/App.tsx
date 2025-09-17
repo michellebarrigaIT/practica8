@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+
+import ColorManager from './components/ColorManager'
 
 function App() {
 
 
   return (
     <>
-      
+      <ColorManager />
     </>
   )
 }
