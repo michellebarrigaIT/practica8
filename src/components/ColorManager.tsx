@@ -5,13 +5,21 @@ export default function ColorManager() {
     const [colors, setColors] = useState<string[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [selectedColor, setSelectedColor] = useState("");
+    const [error, setError] = useState("");
 
     const addColor= (color:string) => {
-        if (color.trim() === "") return; 
+        const colorTrimmed = color.trim();
+        if (colorTrimmed === "") return; 
 
-        if(!isValidCssColor(color)) {
+        if(!isValidCssColor(colorTrimmed)) {
             return;
         }
+
+        if (colors.includes(colorTrimmed)) {
+            setError(`"${colorTrimmed}" ya está en la lista`);
+            return;
+        }
+
         setColors([...colors, color]);
         setInputValue("");
     }
@@ -21,6 +29,13 @@ export default function ColorManager() {
         document.body.style.backgroundColor = selectedColor;
         }
     }, [selectedColor]);
+
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => setError(""), 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [error]);
 
     const isValidCssColor = (color: string): boolean => {
         const s = new Option().style;
@@ -36,11 +51,12 @@ export default function ColorManager() {
                     type="text" 
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Escribe un color: #rrggbb"
+                    placeholder="Escribe un color..."
                 />
-                <button onClick={() => addColor(inputValue)}>Add Color</button>    
+                <button onClick={() => addColor(inputValue)}>Add Color</button>  
+                {error && <p className="error">{error}</p>}  
             </div> 
-            
+
             <div className="color-list">
                 {colors.map((color, index) => (
                     <div 
