@@ -1,5 +1,5 @@
 
-import ColorManager from './components/ColorManager'
+import ColorManager from './components/ColorManager/ColorManager'
 
 function App() {
 
