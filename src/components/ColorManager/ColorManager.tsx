@@ -26,7 +26,7 @@ export default function ColorManager() {
 
     useEffect(() => {
         if (selectedColor) {
-        document.body.style.backgroundColor = selectedColor;
+            document.body.style.backgroundColor = selectedColor;
         }
     }, [selectedColor]);
 

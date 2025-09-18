@@ -1,5 +1,6 @@
 
 import ColorManager from './components/ColorManager/ColorManager'
+import WindowSizeTracker from './components/WindowSizeTracker/WindowSizeTracker'
 
 function App() {
 
@@ -7,6 +8,10 @@ function App() {
   return (
     <>
       <ColorManager />
+      <p>
+
+      </p>
+      <WindowSizeTracker/>
     </>
   )
 }

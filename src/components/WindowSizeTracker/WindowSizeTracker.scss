@@ -1,0 +1,27 @@
+$primary-color: #5a77b0;
+$secondary-color: #f0f4ff;
+$text-color: #333;
+
+.window-size-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 2px solid $primary-color;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px black;
+    background-color: $secondary-color;
+
+    h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $text-color;
+    }
+
+    p {
+        margin: 0.2rem 0;
+        font-size: 1.2rem;
+        color: #555;
+    }
+}
