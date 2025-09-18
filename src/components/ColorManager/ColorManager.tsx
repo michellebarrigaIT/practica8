@@ -38,9 +38,9 @@ export default function ColorManager() {
     }, [error]);
 
     const isValidCssColor = (color: string): boolean => {
-        const s = new Option().style;
-        s.color = color;
-        return s.color !== "";
+        const tempStyle = new Option().style;
+        tempStyle .color = color;
+        return tempStyle .color !== "";
     };
 
     return (
